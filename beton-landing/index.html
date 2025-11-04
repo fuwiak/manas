@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Бетон партнёр — Бетон с завода в Боброво</title>
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="stylesheet" href="/static/css/app.css" />
+
+  <!-- Swiper (slider) -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+  <!-- OpenStreetMap -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- (opcjonalnie) cookieconsent -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+</head>
+<body>
+
+  
+  <div class="top-item top-item_blue">
+    <div class="top-item__container container">
+      <div class="top-item__desc">ПРИГЛАШАЕМ К СОТРУДНИЧЕСТВУ СТРОИТЕЛЬНЫЕ КОМПАНИИ ПО СПЕЦ. УСЛОВЯИМ - ОТСРОЧКА ПЛАТЕЖА, ДОП. СКИДКИ</div>
+      <a class="button button_small button_dark open-modal" href="#conditions" data-title="Узнать условия"><span>Узнать условия</span></a>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header__container">
+      <div class="logo"><img class="logo__image" src="/static/img/скажи300.png" alt="Логотип" /></div>
+      <div class="header__contacts">
+        <a class="header__contact header__contact_phone" href="tel:+74951897145"><b>+7 495 189-71-45</b></a>
+        <div class="header__contact header__contact_address">
+          <span>Боброво, ул. Транспортная, 6А</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Intro -->
+    <section class="intro">
+      <div class="intro__hero">
+        <img src="/static/img/будова.png" alt="Бетонное производство" class="intro__hero-image" />
+        <div class="intro__hero-overlay"></div>
+      </div>
+      <div class="container intro__container">
+        <div class="intro__block">
+          <h1 class="intro__title">Бетон с завода в Боброво. Производство и доставка в пределах 40 км</h1>
+          <ul class="intro__list intro__list_desktop">
+            <li class="intro__list-item">Собственное производство. Реальный завод, реальные цены</li>
+            <li class="intro__list-item">Проверка объёма по весам. Гарантируем качество и марку</li>
+            <li class="intro__list-item">Экономия до 25% на доставке: собственный автопарк</li>
+          </ul>
+        </div>
+
+        <div class="intro__box">
+          <div class="intro__box-group">
+            <div class="intro__box-preview"><img src="/static/img/скажи300.png" alt="Бетон М300" /></div>
+            <div class="intro__box-content">
+              <div class="intro__box-legend">Прямой отдел продаж с завода</div>
+              <div class="intro__box-title">Бетон М300 за 4350 ₽/м<sup>3</sup></div>
+              <a href="#form" class="button intro__box-button open-modal" data-title="Бетон М300 за 4350 ₽/м3"><span>Оставить заявку</span></a>
+            </div>
+          </div>
+        </div>
+
+        <ul class="intro__list intro__list_mobile">
+          <li class="intro__list-item">Собственное производство. Реальные цены</li>
+          <li class="intro__list-item">Документы и контроль качества</li>
+          <li class="intro__list-item">Собственный автопарк, удобная логистика</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Map + form -->
+    <section class="place">
+      <div class="container place__container">
+        <h2 class="place__title">Доставка с бетонного завода в Боброво</h2>
+        <div class="place__holder">
+          <div class="place__column">
+            <div class="map">
+              <div id="map" class="map__init"></div>
+              <div class="map__box">
+                <div class="map__box-item">Боброво, ул. Транспортная, 6А</div>
+              </div>
+            </div>
+            <div class="place__info">
+              <div class="place__info-text">Доставка миксером 6–12м³. Лучшая логистика</div>
+            </div>
+          </div>
+
+          <div class="form form_static">
+            <div class="form__body">
+              <div class="form__title"><span>Акция</span> В <span id="sale-month"></span></div>
+              <div class="form__desc">доставка бетона от 300₽/м<sup>3</sup></div>
+              <div class="form__legend">цена зависит от километража</div>
+            </div>
+            <form class="form__form form-item">
+              <input type="hidden" name="theme" value="Акция" />
+              <div class="form__field"><input class="form__input" type="text" name="name" placeholder="Ваше имя" /></div>
+              <div class="form__field"><input class="form__input" type="text" name="phone" placeholder="Ваш номер телефона" required /></div>
+              <button class="button button_dark button_full form__submit" type="submit"><span>Оставить заявку</span></button>
+              <div class="form__text">Нажимая на кнопку, вы соглашаетесь с условиями <br /><a href="#">Политики конфиденциальности</a></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prices -->
+    <section class="prices" id="prices">
+      <div class="prices__container container">
+        <h2 class="prices__title">Прайс лист в&nbsp;Боброво</h2>
+        <div class="prices__grid">
+          <div class="box">
+            <div class="box__top">
+              <div class="box__info">
+                <div class="box__title">Товарный бетон</div>
+                <div class="box__desc">(гравий)</div>
+              </div>
+              <a class="button button_small box__button box__button_desktop open-modal" href="#form" data-title="Товарный бетон - (гравий)"><span>Заказать</span></a>
+            </div>
+            <div class="box__grid">
+              <div class="box__grid-item box__grid-item_header">
+                <div class="box__grid-value">Класс (марка)</div>
+                <div class="box__grid-value">Цена за&nbsp;1м<sup>3</sup></div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В7,5 (М100)</div>
+                <div class="box__grid-value">4 250&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В12,5 (М150)</div>
+                <div class="box__grid-value">4 400&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В15 (М200)</div>
+                <div class="box__grid-value">4 550&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В20 (М250)</div>
+                <div class="box__grid-value">4 650&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В22,5 (М300)</div>
+                <div class="box__grid-value">4 800&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В25 (М350)</div>
+                <div class="box__grid-value">4 950&nbsp;₽</div>
+              </div>
+            </div>
+            <a class="button button_small box__button box__button_mobile open-modal" href="#form" data-title="Товарный бетон - (гравий)"><span>Заказать</span></a>
+          </div>
+
+          <div class="box">
+            <div class="box__top">
+              <div class="box__info">
+                <div class="box__title">Товарный бетон</div>
+                <div class="box__desc">(гранит)</div>
+              </div>
+              <a class="button button_small box__button box__button_desktop open-modal" href="#form" data-title="Товарный бетон - (гранит)"><span>Заказать</span></a>
+            </div>
+            <div class="box__grid">
+              <div class="box__grid-item box__grid-item_header">
+                <div class="box__grid-value">Класс (марка)</div>
+                <div class="box__grid-value">Цена за&nbsp;1м<sup>3</sup></div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В7,5 (М100)</div>
+                <div class="box__grid-value">4 850&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В12,5 (М150)</div>
+                <div class="box__grid-value">4 950&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В15 (М200)</div>
+                <div class="box__grid-value">5 100&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В20 (М250)</div>
+                <div class="box__grid-value">5 250&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В22,5 (М300)</div>
+                <div class="box__grid-value">5 350&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В25 (М350)</div>
+                <div class="box__grid-value">5 450&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В30 (М400)</div>
+                <div class="box__grid-value">5 550&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В35 (М450)</div>
+                <div class="box__grid-value">5 750&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В40 (М500)</div>
+                <div class="box__grid-value">5 800&nbsp;₽</div>
+              </div>
+            </div>
+            <a class="button button_small box__button box__button_mobile open-modal" href="#form" data-title="Товарный бетон - (гранит)"><span>Заказать</span></a>
+          </div>
+
+          <div class="box">
+            <div class="box__top">
+              <div class="box__info">
+                <div class="box__title">Тoщий бетон</div>
+              </div>
+              <a class="button button_small box__button box__button_desktop open-modal" href="#form" data-title="Тoщий бетон"><span>Заказать</span></a>
+            </div>
+            <div class="box__grid">
+              <div class="box__grid-item box__grid-item_header">
+                <div class="box__grid-value">Класс (марка)</div>
+                <div class="box__grid-value">Цена за&nbsp;1м<sup>3</sup></div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В7,5 (М100)</div>
+                <div class="box__grid-value">3 050&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В12,5 (М150)</div>
+                <div class="box__grid-value">3 150&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В15 (М200)</div>
+                <div class="box__grid-value">3 250&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В20 (М250)</div>
+                <div class="box__grid-value">3 350&nbsp;₽</div>
+              </div>
+            </div>
+            <a class="button button_small box__button box__button_mobile open-modal" href="#form" data-title="Тoщий бетон"><span>Заказать</span></a>
+          </div>
+
+          <div class="box">
+            <div class="box__top">
+              <div class="box__info">
+                <div class="box__title">Керамзитобетон</div>
+              </div>
+              <a class="button button_small box__button box__button_desktop open-modal" href="#form" data-title="Керамзитобетон"><span>Заказать</span></a>
+            </div>
+            <div class="box__grid">
+              <div class="box__grid-item box__grid-item_header">
+                <div class="box__grid-value">Класс (марка)</div>
+                <div class="box__grid-value">Цена за&nbsp;1м<sup>3</sup></div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В7,5 (М100)</div>
+                <div class="box__grid-value">3 350&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В12,5 (М150)</div>
+                <div class="box__grid-value">3 550&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В15 (М200)</div>
+                <div class="box__grid-value">3 850&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В20 (М250)</div>
+                <div class="box__grid-value">3 950&nbsp;₽</div>
+              </div>
+            </div>
+            <a class="button button_small box__button box__button_mobile open-modal" href="#form" data-title="Керамзитобетон"><span>Заказать</span></a>
+          </div>
+
+          <div class="box">
+            <div class="box__top">
+              <div class="box__info">
+                <div class="box__title">Пескобетон</div>
+              </div>
+              <a class="button button_small box__button box__button_desktop open-modal" href="#form" data-title="Пескобетон"><span>Заказать</span></a>
+            </div>
+            <div class="box__grid">
+              <div class="box__grid-item box__grid-item_header">
+                <div class="box__grid-value">Класс (марка)</div>
+                <div class="box__grid-value">Цена за&nbsp;1м<sup>3</sup></div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В7,5 (М100)</div>
+                <div class="box__grid-value">3 050&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В12,5 (М150)</div>
+                <div class="box__grid-value">3 150&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В15 (М200)</div>
+                <div class="box__grid-value">3 450&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В20 (М250)</div>
+                <div class="box__grid-value">3 550&nbsp;₽</div>
+              </div>
+              <div class="box__grid-item">
+                <div class="box__grid-title">Бетон В25 (М300)</div>
+                <div class="box__grid-value">3 650&nbsp;₽</div>
+              </div>
+            </div>
+            <a class="button button_small box__button box__button_mobile open-modal" href="#form" data-title="Пескобетон"><span>Заказать</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rent -->
+    <section class="rent">
+      <div class="rent__cover">
+        <div class="container rent__cover-container">
+          <div class="rent__block">
+            <h2 class="rent__title">Аренда автобетононасоса в Боброво</h2>
+            <div class="rent__discount">
+              <div class="rent__discount-legend">От 17 400 ₽ за смену</div>
+            </div>
+            <div class="rent__group">
+              <a class="button button_full open-modal" href="#form" data-title="Аренда автобетононасоса"><span>Заказать бетон</span></a>
+              <div class="rent__group-text">Цена за смену 28 м без запуска. Минимум 8 часов</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container rent__container">
+        <div class="box">
+          <div class="box__top">
+            <div class="box__info">
+              <div class="box__title box__title_second">Стоимость аренды</div>
+              <div class="box__desc box__desc_second">(минимальная смена 8 ч)</div>
+            </div>
+            <a class="button button_small button_outline open-modal" href="#form" data-title="Аренда автобетононасоса"><span>Арендовать</span></a>
+          </div>
+          <div class="box__grid">
+            <div class="box__grid-item box__grid-item_header">
+              <div class="box__grid-value">Модель (длина стрелы)</div>
+              <div class="box__grid-value">Стоимость 1 смены</div>
+            </div>
+            <div class="box__grid-item"><div class="box__grid-title">28–32 м</div><div class="box__grid-value">17 400 ₽</div></div>
+            <div class="box__grid-item"><div class="box__grid-title">36 м</div><div class="box__grid-value">21 400 ₽</div></div>
+            <div class="box__grid-item"><div class="box__grid-title">42 м</div><div class="box__grid-value">27 400 ₽</div></div>
+            <div class="box__grid-item"><div class="box__grid-title">46 м</div><div class="box__grid-value">29 400 ₽</div></div>
+            <div class="box__grid-item"><div class="box__grid-title">52 м</div><div class="box__grid-value">37 400 ₽</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects slider -->
+    <section class="projects">
+      <div class="container projects__container">
+        <h2 class="projects__title">Выполненные объекты</h2>
+        <div class="projects__slider swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="project">
+                <div class="project__body">
+                  <div class="project__legend">Загородный дом, 280 м²</div>
+                  <ul class="project__options">
+                    <li class="project__option">
+                      <div class="project__option-legend">Поставка:</div>
+                      <div class="project__option-value">М350 Гранит – 170 м³</div>
+                    </li>
+                  </ul>
+                  <div class="project__title">Бобр Бобров</div>
+                  <div class="project__desc">Плотины (тамы) — возводим плотины для поднятия уровня воды в водоёме. Строим из веток, стволов деревьев, камней, ила, глины и дёрна. Вертикально втыкаем в дно ветви и стволы, укрепляя промежутки. Обычная длина плотины составляет 20-30 метров, ширина в основании 4-6 метров, высота может достигать 4,8 метра. Старая плотина легко выдерживает вес человека.</div>
+                </div>
+                <div class="project__cover">
+                  <img src="/static/img/будова.png" alt="">
+                  <div class="project__tag">Частное строительство</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="project">
+                <div class="project__body">
+                  <div class="project__legend">Дом 98 м²</div>
+                  <ul class="project__options">
+                    <li class="project__option">
+                      <div class="project__option-legend">Поставка:</div>
+                      <div class="project__option-value">М300 Гравий – 150 м³</div>
+                    </li>
+                  </ul>
+                  <div class="project__title">Бобриха Боброва</div>
+                  <div class="project__desc">Хатки — в местах, где невозможно вырыть нору, строим хатки. Хатка представляет собой конусообразную кучу хвороста, скреплённого илом и землёй, высотой до 1-3 метров и диаметром до 10-12 метров. Стены хатки тщательно обмазываем илом и глиной, превращая её в настоящую крепость, неприступную для хищников. Внутри хатки имеются несколько жилых помещений, расположенных одно над другим.</div>
+                </div>
+                <div class="project__cover">
+                  <img src="/static/img/кирил.png" alt="">
+                  <div class="project__tag">Частное строительство</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="project">
+                <div class="project__body">
+                  <div class="project__legend">Ленточный фундамент под баню</div>
+                  <ul class="project__options">
+                    <li class="project__option">
+                      <div class="project__option-legend">Поставка:</div>
+                      <div class="project__option-value">М250 Гравий – 23 м³</div>
+                    </li>
+                  </ul>
+                  <div class="project__title">Бобрик Бобриков</div>
+                  <div class="project__desc">Норы — на крутых и обрывистых берегах роем норы, которые представляют собой сложный лабиринт с 4-5 входами. Жилая камера внутри норы устраивается на глубине не более 1 метра, её ширина немногим более метра, высота — 40-50 сантиметров. Вход в жилище всегда располагается под водой для безопасности.</div>
+                </div>
+                <div class="project__cover">
+                  <img src="/static/img/пиздуй.png" alt="">
+                  <div class="project__tag">Монолитное строительство</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="project">
+                <div class="project__body">
+                  <div class="project__legend">Коттедж, 320 м²</div>
+                  <ul class="project__options">
+                    <li class="project__option">
+                      <div class="project__option-legend">Поставка:</div>
+                      <div class="project__option-value">М400 Гранит – 220 м³</div>
+                    </li>
+                  </ul>
+                  <div class="project__title">Бобрина Бобринова</div>
+                  <div class="project__desc">Каналы — вокруг жилищ строим многочисленные подводные каналы, общая длина которых в пределах одного поселения может достигать 420 метров. Каналы обеспечивают безопасный доступ к кормовым ресурсам и позволяют быстро перемещаться между различными участками нашей территории.</div>
+                </div>
+                <div class="project__cover">
+                  <img src="/static/img/дануна.png" alt="">
+                  <div class="project__tag">Частное строительство</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="project">
+                <div class="project__body">
+                  <div class="project__legend">Промышленный объект</div>
+                  <ul class="project__options">
+                    <li class="project__option">
+                      <div class="project__option-legend">Поставка:</div>
+                      <div class="project__option-value">М500 Гранит – 450 м³</div>
+                    </li>
+                  </ul>
+                  <div class="project__title">Бобер Боберский</div>
+                  <div class="project__desc">Плотины (тамы) — профессиональное строительство плотин для создания водохранилищ. Используем проверенные технологии: вертикальное укрепление ветвями и стволами, заполнение пустот илом и глиной. Наши плотины выдерживают значительные нагрузки и служат долгие годы.</div>
+                </div>
+                <div class="project__cover">
+                  <img src="/static/img/фиаско.png" alt="">
+                  <div class="project__tag">Промышленное строительство</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="project">
+                <div class="project__body">
+                  <div class="project__legend">Жилой комплекс, 1200 м²</div>
+                  <ul class="project__options">
+                    <li class="project__option">
+                      <div class="project__option-legend">Поставка:</div>
+                      <div class="project__option-value">М350 Гранит – 380 м³</div>
+                    </li>
+                  </ul>
+                  <div class="project__title">Бобришка Бобришкова</div>
+                  <div class="project__desc">Хатки — специализируемся на строительстве надёжных хат. Конусообразная конструкция из хвороста, скреплённого илом и землёй, обеспечивает отличную защиту. Высота до 3 метров, диаметр до 12 метров. Внутри — несколько уровней жилых помещений с выходами в воду.</div>
+                </div>
+                <div class="project__cover">
+                  <img src="/static/img/шаболды.png" alt="">
+                  <div class="project__tag">Многоэтажное строительство</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="project">
+                <div class="project__body">
+                  <div class="project__legend">Фундамент под склад</div>
+                  <ul class="project__options">
+                    <li class="project__option">
+                      <div class="project__option-legend">Поставка:</div>
+                      <div class="project__option-value">М300 Гравий – 280 м³</div>
+                    </li>
+                  </ul>
+                  <div class="project__title">Бобрусь Бобрусьев</div>
+                  <div class="project__desc">Норы — создаём сложные подземные лабиринты с множеством входов. Жилая камера на оптимальной глубине, ширина более метра. Все входы надёжно скрыты под водой, что обеспечивает максимальную безопасность. Профессиональный подход к каждому проекту.</div>
+                </div>
+                <div class="project__cover">
+                  <img src="/static/img/дануна.png" alt="">
+                  <div class="project__tag">Коммерческое строительство</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="project">
+                <div class="project__body">
+                  <div class="project__legend">Коттеджный поселок</div>
+                  <ul class="project__options">
+                    <li class="project__option">
+                      <div class="project__option-legend">Поставка:</div>
+                      <div class="project__option-value">М250 Гравий – 520 м³</div>
+                    </li>
+                  </ul>
+                  <div class="project__title">Бобруня Бобрунева</div>
+                  <div class="project__desc">Каналы — проектируем и строим сеть подводных каналов для эффективного перемещения. Общая длина каналов в одном поселении может достигать 420 метров. Каналы связывают все важные участки территории, обеспечивая быстрый доступ к ресурсам и безопасное передвижение.</div>
+                </div>
+                <div class="project__cover">
+                  <img src="/static/img/будова.png" alt="">
+                  <div class="project__tag">Частное строительство</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="projects__controls">
+            <button class="projects__control projects__control_prev" type="button"></button>
+            <button class="projects__control projects__control_next" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="answers">
+      <div class="container">
+        <h2 class="answers__title">Часто задаваемые вопросы</h2>
+        <div class="answers__holder">
+          <div class="answers__items">
+            <div class="collapse">
+              <div class="collapse__header"><div class="collapse__title">Из чего складывается стоимость бетона?</div></div>
+              <div class="collapse__content"><div class="collapse__desc"><p>От стоимости наполнителей, добавок и работы завода/техники.</p></div></div>
+            </div>
+            <div class="collapse">
+              <div class="collapse__header"><div class="collapse__title">Как понять, что нам доставят качественный бетон?</div></div>
+              <div class="collapse__content"><div class="collapse__desc"><p>Получаете паспорт качества и сертификат соответствия.</p></div></div>
+            </div>
+          </div>
+
+          <div class="answers__box">
+            <div class="answers__box-group">
+              <div class="answers__box-title">Узнайте актуальные цены за 2 минуты</div>
+              <div class="answers__box-wrap answers__box-wrap_desktop"><a class="answers__box-link" href="tel:+74951897145">+7 495 189-71-45</a></div>
+            </div>
+            <a class="button button_dark button_full open-modal" data-title="Заказать звонок" href="#form"><span>Заказать звонок</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__container">
+      <div class="footer__top">
+        <div class="footer__logo"><img src="/static/img/скажи300.png" alt=""></div>
+        <div class="footer__contacts">
+          <div class="footer__contact">
+            <div class="footer__contact-item">Прямой отдел продаж с завода</div>
+            <a class="footer__contact-item footer__contact-item_color" href="tel:+74951897145">+7 495 189-71-45</a>
+          </div>
+          <div class="footer__contact footer__contact_email"><a class="footer__contact-item" href="mailto:bober@pierdole.ru">bober@pierdole.ru</a></div>
+          <div class="footer__contact footer__contact_address"><div class="footer__contact-item">Одинцово, ул. Транспортная, 6А</div></div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <a class="footer__link" href="#">Политика конфиденциальности</a>
+        <div class="footer__creator">Сайт разработан компанией <a href="#">Бобер</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: form -->
+  <div class="modal" data-modal="form">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <div class="form form_modal">
+        <div class="form__body">
+          <div class="form__title">Оставить заявку:</div>
+          <div class="form__desc product-name">Бетон М300 за 4350 ₽/м<sup>3</sup></div>
+        </div>
+        <form class="form__form form-item">
+          <input type="hidden" name="product" />
+          <div class="form__field"><input class="form__input" type="text" name="name" placeholder="Ваше имя" /></div>
+          <div class="form__field"><input class="form__input" type="text" name="phone" placeholder="Ваш номер телефона" required /></div>
+          <button class="button button_dark button_full form__submit" type="submit"><span>Оставить заявку</span></button>
+          <div class="form__text">Нажимая на кнопку, вы соглашаетесь с условиями <br><a href="#">Политики конфиденциальности</a></div>
+        </form>
+      </div>
+      <button class="modal__close" aria-label="Закрыть"></button>
+    </div>
+  </div>
+
+  <!-- Modal: conditions -->
+  <div class="modal modal_conditions" data-modal="conditions">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <div class="form form_modal">
+        <div class="form__body">
+          <div class="form__title">Узнать условия</div>
+          <ul>
+            <li>Росаккредитация, собственная лаборатория</li>
+            <li>Качество по ГОСТ, результаты экспертизы</li>
+            <li>Оптовая цена от 50 м³, отсрочка платежа</li>
+          </ul>
+        </div>
+        <form class="form__form form-item">
+          <input type="hidden" name="theme" value="Узнать условия" />
+          <div class="form__field"><input class="form__input" type="text" name="name" placeholder="Ваше имя" /></div>
+          <div class="form__field"><input class="form__input" type="text" name="phone" placeholder="Ваш номер телефона" required /></div>
+          <button class="button button_dark button_full form__submit" type="submit"><span>Оставить заявку</span></button>
+        </form>
+      </div>
+      <button class="modal__close" aria-label="Закрыть"></button>
+    </div>
+  </div>
+
+  <!-- Vendors + App -->
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script type="module" src="/static/js/vendors.js"></script>
+  <script type="module" src="/static/js/app.js"></script>
+
+  <!-- (opcjonalnie) cookieconsent init -->
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+
+  <!-- Widget Navigation -->
+  <div id="widget_nav" class="nav-fixed">
+    <div class="nav-border">
+      <div class="align-items-center d-flex widget-nav__item">
+        <div class="widget-nav__item-icon">
+          <svg width="35px" height="35px" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.66663 35V5C1.66663 4.11595 2.01782 3.2681 2.64294 2.64298C3.26806 2.01786 4.1159 1.66667 4.99996 1.66667H35C35.884 1.66667 36.7319 2.01786 37.357 2.64298C37.9821 3.2681 38.3333 4.11595 38.3333 5V35C38.3333 35.8841 37.9821 36.7319 37.357 37.357C36.7319 37.9821 35.884 38.3333 35 38.3333H4.99996C4.1159 38.3333 3.26806 37.9821 2.64294 37.357C2.01782 36.7319 1.66663 35.8841 1.66663 35Z" stroke="#1D5E9A" stroke-width="1.5"></path>
+            <path d="M25 11.6667H31.6667" stroke="#1D5E9A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M25 25.8333H31.6667" stroke="#1D5E9A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M25 30.8333H31.6667" stroke="#1D5E9A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M11.6666 11.6667V15M8.33325 11.6667H11.6666H8.33325ZM14.9999 11.6667H11.6666H14.9999ZM11.6666 11.6667V8.33334V11.6667Z" stroke="#1D5E9A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M11.6666 28.3333L14.0249 30.69M9.30994 30.69L11.6666 28.3333L9.30994 30.69ZM14.0249 25.9767L11.6666 28.3333L14.0249 25.9767ZM11.6666 28.3333L9.30994 25.9767L11.6666 28.3333Z" stroke="#1D5E9A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <a class="widget-nav__item-text text-decoration-none open-modal" href="#form" data-title="Рассчитать стоимость бетона">Рассчитать стоимость бетона</a>
+      </div>
+      <div class="align-items-center d-flex widget-nav__item">
+        <div class="widget-nav__item-icon">
+          <svg width="35px" height="35px" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32.5 36.25H32.2875C7.72505 34.8375 4.23754 14.1125 3.75004 7.7875C3.67385 6.79594 3.99465 5.81471 4.64187 5.05966C5.2891 4.3046 6.20974 3.83756 7.20129 3.76125C7.30046 3.75375 7.40004 3.75 7.50004 3.75H14.0875C14.5882 3.74952 15.0775 3.89939 15.4921 4.1802C15.9066 4.46102 16.2273 4.85984 16.4125 5.325L18.3125 10C18.4955 10.4544 18.5409 10.9526 18.4314 11.4326C18.3453 11.9126 18.1087 12.3533 17.7625 12.7L15.1 15.3875C15.5142 17.7517 16.6455 19.9312 18.3405 21.6306C20.0354 23.3301 22.212 24.4671 24.575 24.8875L27.2875 22.2C27.6394 21.8577 28.0843 21.6266 28.5666 21.5354C29.049 21.4443 29.5475 21.4972 30 21.6875L34.7125 23.575C35.1707 23.7661 35.5616 24.0893 35.8354 24.5033C36.1092 24.9174 36.2536 25.4036 36.25 25.9V32.5C36.25 33.4946 35.855 34.4484 35.1517 35.1517C34.4484 35.8549 33.4946 36.25 32.5 36.25ZM7.50004 6.25C7.33589 6.24951 7.17325 6.28135 7.0214 6.34372C6.86956 6.40608 6.73148 6.49774 6.61506 6.61346C6.49864 6.72919 6.40615 6.86671 6.34288 7.01818C6.27961 7.16965 6.24679 7.3321 6.24629 7.49625C6.24629 7.53125 6.24754 7.56583 6.25004 7.6C6.82504 15 10.5125 32.5 32.425 33.75C32.7559 33.7698 33.0811 33.6574 33.3291 33.4376C33.5771 33.2177 33.7276 32.9083 33.7475 32.5775L33.75 32.5V25.9L29.0375 24.0125L25.45 27.575L24.85 27.5C13.975 26.1375 12.5 15.2625 12.5 15.15L12.425 14.55L15.975 10.9625L14.1 6.25H7.50004Z" fill="#1D5E9A"></path>
+            <path d="M33.75 16.25V13.75H28.0175L36.25 5.5175L34.4825 3.75L26.25 11.9825V6.25H23.75V16.25H33.75Z" fill="#1D5E9A"></path>
+          </svg>
+        </div>
+        <a class="widget-nav__item-text widget-nav__item-phone text-decoration-none" href="tel:+74951897145" title="Звонок нам">Позвоните нам</a>
+      </div>
+      <div class="align-items-center d-flex widget-nav__item widget-promotion">
+        <div class="widget-nav__item-icon">
+          <img src="/static/img/скажи300.png" alt="" style="width: 35px; height: 35px; object-fit: contain;" />
+        </div>
+        <a class="widget-nav__item-text text-decoration-none" href="#prices" title="ПРАЙС ЛИСТ">ПРАЙС ЛИСТ</a>
+      </div>
+    </div>
+    <div class="widget-hide" onclick="overlay_hide(this)">свернуть</div>
+  </div>
+
+  <script>
+    function overlay_hide(el) {
+      const widget = document.getElementById('widget_nav');
+      if (widget) {
+        widget.classList.toggle('widget-hidden');
+      }
+    }
+  </script>
+</body>
+</html>
