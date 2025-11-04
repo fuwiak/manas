@@ -1,0 +1,18 @@
+[phases.setup]
+nixPkgs = ["nodejs-18_x"]
+
+[phases.install]
+cmds = [
+  "export npm_config_cache=/tmp/.npm",
+  "npm ci --prefer-offline --no-audit"
+]
+
+[phases.build]
+cmds = [
+  "export npm_config_cache=/tmp/.npm",
+  "npm run build"
+]
+
+[start]
+cmd = "node server.js"
+
