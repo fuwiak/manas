@@ -5,21 +5,21 @@
   --text: #1a1f2e;
   --text-secondary: #4a5568;
   --muted: #718096;
-  --brand: #2563eb;
-  --brand-hover: #3b82f6;
-  --brand-dark: #1e40af;
+  --brand: #2C2C2C;
+  --brand-hover: #3D3D3D;
+  --brand-dark: #1A1A1A;
   --dark: #1a1f2e;
   --card: #ffffff;
   --card-hover: #f8f9fa;
   --border: #e2e8f0;
   --border-light: #cbd5e0;
-  --accent: #2563eb;
-  --menu-bg: #2563eb;
+  --accent: #2C2C2C;
+  --menu-bg: #2C2C2C;
   --menu-text: #ffffff;
   --success: #10b981;
   --shadow: rgba(0, 0, 0, 0.08);
   --shadow-lg: rgba(0, 0, 0, 0.12);
-  --glow: rgba(37, 99, 235, 0.15);
+  --glow: rgba(44, 44, 44, 0.15);
 }
 
 * {
@@ -35,8 +35,8 @@ html {
 body {
   background: var(--bg);
   background-image: 
-    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(44, 44, 44, 0.03) 0%, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(44, 44, 44, 0.03) 0%, transparent 50%);
   color: var(--text);
   font-family: Inter, system-ui, Arial, sans-serif;
   font-size: 16px;
@@ -322,7 +322,7 @@ a:hover {
   color: var(--text);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--menu-bg) 0%, #1e40af 100%);
+  background: linear-gradient(135deg, var(--menu-bg) 0%, var(--brand-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -373,7 +373,7 @@ a:hover {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--menu-bg), #3b82f6);
+  background: linear-gradient(90deg, var(--menu-bg), var(--brand-hover));
 }
 
 .intro__box:hover {
@@ -1112,7 +1112,7 @@ a:hover {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--menu-bg), #3b82f6);
+  background: linear-gradient(90deg, var(--menu-bg), var(--brand-hover));
 }
 
 .answers__box-title {
