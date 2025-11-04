@@ -30,15 +30,15 @@ npm start
 
 ## Deploy na Railway
 
-### Ważne: Ustaw Root Directory
+### ⚠️ WAŻNE: Ustaw Root Directory na `beton-landing/`
 
-Railway musi wiedzieć, że projekt jest w folderze `beton-landing/`:
+**Railway Dashboard - Settings → Build & Deploy:**
 
-**W Railway Dashboard:**
-1. Przejdź do projektu → Settings → Build & Deploy
-2. Ustaw **Root Directory** na: `beton-landing`
-3. Ustaw **Build Command**: `npm ci && npm run build`
-4. Ustaw **Start Command**: `npm start`
+1. **Root Directory**: `beton-landing` ⚠️ (OBOWIĄZKOWE!)
+2. **Build Command**: `npm ci --prefer-offline --no-audit && npm run build`
+3. **Start Command**: `npm start`
+
+**Bez ustawienia Root Directory build się nie powiedzie!**
 
 **Lub użyj Railway CLI:**
 ```bash
