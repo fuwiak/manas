@@ -3,11 +3,13 @@ nixPkgs = ["nodejs-18_x"]
 
 [phases.install]
 cmds = [
+  "npm config set cache /tmp/.npm",
   "npm ci --no-audit"
 ]
 
 [phases.build]
 cmds = [
+  "npm config set cache /tmp/.npm",
   "npm run build"
 ]
 
