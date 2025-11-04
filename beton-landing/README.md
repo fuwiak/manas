@@ -1,58 +1,74 @@
-# Beton Landing Page
+# Бетон партнёр — Landing Page
 
-Nowoczesna strona landingowa dla firmy betonowej z wykorzystaniem Vite.
+Landing page dla zakładu betonowego w Боброво.
 
-## 🚀 Uruchomienie
+## Technologie
 
-### Instalacja zależności
+- Vite (build tool)
+- Express.js (server)
+- Leaflet (OpenStreetMap)
+- Swiper.js (sliders)
+
+## Lokalny development
 
 ```bash
 npm install
-```
-
-### Development Server
-
-```bash
 npm run dev
 ```
 
-Strona będzie dostępna pod adresem: **http://localhost:3000**
-
-### Build produkcyjny
+## Build
 
 ```bash
 npm run build
 ```
 
-Zbudowane pliki znajdziesz w katalogu `dist/`.
-
-### Podgląd buildu
+## Production
 
 ```bash
-npm run preview
+npm start
 ```
 
-## ✨ Funkcje
+## Deploy na Railway
 
-- ⚡ **Vite** - szybki development server z HMR
-- 🎨 **Nowoczesny UI** - ulepszone kolory, animacje, cienie
-- 📱 **Responsywny design** - działa na wszystkich urządzeniach
-- 🎭 **Animacje** - płynne transitions i hover effects
-- 🗺️ **Yandex Maps** - integracja z mapami (wymaga klucza API)
-- 🎪 **Swiper** - slider dla projektów
-- 📝 **Formularze** - z walidacją
-- 🎯 **Modals** - nowoczesne okna dialogowe
+### Ważne: Ustaw Root Directory
 
-## 📝 Uwagi
+Railway musi wiedzieć, że projekt jest w folderze `beton-landing/`:
 
-W pliku `index.html` (linia 15) znajduje się placeholder dla klucza API Yandex Maps. Jeśli potrzebujesz mapy, zamień `ВАШ_API_КЛЮЧ` na prawdziwy klucz API.
+**W Railway Dashboard:**
+1. Przejdź do projektu → Settings → Build & Deploy
+2. Ustaw **Root Directory** na: `beton-landing`
+3. Ustaw **Build Command**: `npm ci && npm run build`
+4. Ustaw **Start Command**: `npm start`
 
-## 🛠️ Technologie
+**Lub użyj Railway CLI:**
+```bash
+npm install -g @railway/cli
+railway login
+cd beton-landing
+railway init
+railway up
+```
 
-- Vite 5
-- Vanilla JavaScript
-- CSS3 (Custom Properties, Grid, Flexbox)
-- Swiper.js
-- Yandex Maps API
-- Cookie Consent
+**Alternatywnie - deploy z GitHub:**
+1. Upewnij się, że wszystkie pliki są w repozytorium
+2. Połącz repozytorium z Railway
+3. W Settings ustaw Root Directory na `beton-landing`
+4. Railway automatycznie wykryje Node.js i uruchomi build
 
+## Environment Variables
+
+Railway automatycznie ustawia `PORT` - nie trzeba konfigurować ręcznie.
+
+## Struktura projektu
+
+```
+beton-landing/
+├── index.html          # Główny plik HTML
+├── static/            # Statyczne pliki
+│   ├── css/
+│   ├── js/
+│   └── img/
+├── server.js          # Express server dla production
+├── vite.config.js     # Konfiguracja Vite
+└── package.json       # Zależności i skrypty
+```
