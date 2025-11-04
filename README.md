@@ -56,7 +56,7 @@ Railway automatycznie ustawia `PORT` - nie trzeba konfigurować ręcznie.
 ## Struktura projektu
 
 ```
-beton-landing/
+.
 ├── index.html          # Główny plik HTML
 ├── static/            # Statyczne pliki
 │   ├── css/
@@ -64,5 +64,7 @@ beton-landing/
 │   └── img/
 ├── server.js          # Express server dla production
 ├── vite.config.js     # Konfiguracja Vite
-└── package.json       # Zależności i skrypty
+├── package.json       # Zależności i skrypty
+├── nixpacks.toml      # Konfiguracja Nixpacks
+└── railway.json       # Konfiguracja Railway
 ```
