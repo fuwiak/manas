@@ -3,11 +3,13 @@ nixPkgs = ["nodejs-18_x"]
 
 [phases.install]
 cmds = [
-  "npm ci --prefer-offline --no-audit --cache=/tmp/.npm"
+  "export npm_config_cache=/tmp/.npm",
+  "npm ci --prefer-offline --no-audit"
 ]
 
 [phases.build]
 cmds = [
+  "export npm_config_cache=/tmp/.npm",
   "npm run build"
 ]
 
