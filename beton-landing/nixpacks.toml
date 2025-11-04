@@ -2,10 +2,15 @@
 nixPkgs = ["nodejs-18_x"]
 
 [phases.install]
-cmds = ["npm ci"]
+cmds = [
+  "rm -rf node_modules/.cache 2>/dev/null || true",
+  "npm ci --prefer-offline --no-audit"
+]
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = [
+  "npm run build"
+]
 
 [start]
 cmd = "node server.js"
